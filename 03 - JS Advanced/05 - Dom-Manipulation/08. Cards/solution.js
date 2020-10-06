@@ -1,4 +1,4 @@
-//--------------- 50 / 100 Judge ---------------------------//
+//--------------- 50/100 Judge ---------------------------//
 
 function solve() {
     let playerOneCards = document.querySelector("#player1Div");
