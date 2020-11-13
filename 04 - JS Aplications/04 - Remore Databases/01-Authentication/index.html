@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="styles/bootstrap/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="styles/css/login.css" />
+  <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-app.js"></script>
+  
+  <script src="config.js"></script>
+  <script type="module" src="app.js"></script>
+  <title>Auth demo</title>
+</head>
+
+<body>
+  <div id="wrap">
+    <div id="error"></div>
+    <form id="register">
+      <h1>Sing up!</h2>
+        <div class="fields">
+          <span class="glyphicon glyphicon-envelope"></span>
+          <input type="email" name="email" required="true" placeholder="Email" id="regEmail" />
+        </div>
+        <div class="fields">
+          <span class="glyphicon glyphicon-lock"></span>
+          <input type="password" name="password" required="true" placeholder="Password" id="regPass" />
+        </div>
+
+        <button id="registerBtn">Register</button>
+        <span id="regMessage"></span>
+    </form>
+    <form id="login">
+      <h1>Or sing in!</h2>
+        <div class="fields">
+          <span class="glyphicon glyphicon-heart"></span>
+          <input type="email" name="email" required="true" placeholder="Email" id="logEmail" />
+        </div>
+        <div class="fields">
+          <span class="glyphicon glyphicon-lock"></span>
+          <input type="password" name="password" required="true" placeholder="Password" id="logPass" />
+        </div>
+        <button id="loginBtn">Login</button>
+    </form>
+    <div id="loged">
+    </div>
+  </div>
+  <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-firestore.js"></script>
+  
+</body>
+
+</html>

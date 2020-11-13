@@ -1,0 +1,133 @@
+@font-face {
+  font-family: AlexBrush;
+  src: url("../fonts/AlexBrush-Regular.ttf");
+}
+
+
+body {
+  margin: 0;
+  padding: 0;
+  background-image: url('../../img/login-background2.jpg');
+  background-repeat: repeat-y;
+  background-position: center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  font-family: 'AlexBrush', 'Arial', sans-serif;
+    #wrap {
+      width: 960px;
+      margin: 70px auto 0 auto;
+      @media screen and (max-width: 960px) {
+        width: 100%;
+      }
+        form {
+          width: 420px;
+          background-color: rgba(0, 0, 0, 0.8);
+          padding: 15px;
+          display: inline-block;
+          float: left;
+          margin-right: 15px;
+          margin-left: 15px;
+          border-radius: 3px;
+          text-shadow: 1px 1px 17px #6EC2F5;
+          color: #fff;
+          @media screen and (max-width: 420px) {
+            width: 100%;
+            margin: 0 auto;
+          }
+          h1 {
+            font-family: 'AlexBrush';
+            margin-top: 0px;
+            text-align: right;
+            margin-right: 20px;
+          }
+          input {
+            display: block;
+            width: 350px;
+            height: 35px;
+            border-radius: 3px;
+            border: 1px solid #000;
+            border-radius: 3px;
+            padding-left: 40px;
+            color: #000;
+            margin: 3px auto 6px auto;
+            @media screen and (max-width: 350px) {
+              width: 100%;
+              padding-left: 3px;
+            }
+          }
+          input:focus {
+            box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+            border: 1px solid rgba(81, 203, 238, 1);
+          }
+
+          .genger input#gm,
+           .genger input#gf, {
+             display: inline;
+             width: auto;
+             height: auto;
+             margin-top: 5px;
+          }
+          .genger {
+            font-weight: 700;
+            margin-left: 20px;
+            label {
+              width: 75px;
+            }
+          }
+          button {
+              float: right;
+              margin-right: 20px;
+              margin-top: 5px;
+              -webkit-border-radius: 5;
+              -moz-border-radius: 5;
+              border-radius: 5px;
+              text-shadow: 2px 2px 30px #ffffff;
+              color: #fff;
+              font-size: 24px;
+              background: #0b293b;
+              padding: 7px 10px;
+              border: solid #0b293b 1px;
+              text-decoration: none;
+            }
+
+          button:hover {
+            background: #fff;
+            color: #0b293b;
+            text-decoration: none;
+          }
+          .oformlenie {
+            position: relative;
+            span {
+              position: absolute;
+              top: 2px;
+              padding: 8.5px;
+              border-right: 1px solid white;
+              border-radius: 7px;
+              background: #173445;
+              left: 22px;
+              color: #fff;
+              @media screen and (max-width: 420px) {
+                display: none;
+              }
+            }
+          }
+          .bday {
+            .oformlenie {
+              span {
+                top: 30px;
+              }
+              label {
+                margin-left: 20px;
+              }
+            }
+          }
+        }
+        #sec {
+          margin-top: 120px;
+          @media screen and (max-width: 730px) {
+            margin-top: 50px;
+          }
+        }
+    }
+}
