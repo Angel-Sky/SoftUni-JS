@@ -1,0 +1,5 @@
+How to run:
+
+- Navigate to the directory with package.json
+- npm install
+- npm start
