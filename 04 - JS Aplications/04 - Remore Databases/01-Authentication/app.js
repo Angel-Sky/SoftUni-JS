@@ -3,6 +3,14 @@
 import genEl from "../dom-generator.js"
 
 window.addEventListener("load", () => {
+    const auth = firebase.auth();
+
+    auth.onAuthStateChanged(user => {
+        console.log(user)
+    })
+
+
+
     const regForm = document.querySelector("#register");
     const registerBtn = document.querySelector("#registerBtn");
     const regEmailInp = document.querySelector("#regEmail");
@@ -22,7 +30,7 @@ window.addEventListener("load", () => {
         let password = regPassInp.value.trim();
         let email = regEmailInp.value.trim();
         if (password.length >= 6) {
-            firebase.auth().createUserWithEmailAndPassword(email, password)
+            auth.createUserWithEmailAndPassword(email, password)
             .then(registered)
             .catch(err => messageHandler(err));
         } else {
@@ -43,7 +51,7 @@ window.addEventListener("load", () => {
         let password = logPassInp.value.trim();
         let email = logEmailInp.value.trim();
 
-        firebase.auth().signInWithEmailAndPassword(email, password)
+        auth.signInWithEmailAndPassword(email, password)
             .then(login)
             .catch(error => messageHandler(error));
 
@@ -61,7 +69,7 @@ window.addEventListener("load", () => {
         logedInDiv.append(span, logOutBtn);
 
         logOutBtn.addEventListener("click", () => {
-            firebase.auth().signOut()
+            auth.signOut()
                 .then(displayForms)
                 .catch(messageHandler);
         })
@@ -82,11 +90,4 @@ window.addEventListener("load", () => {
             errorDiv.style.display = "none";
         }, 4000);
     }
-
-
-
-
-
-
-
 })
