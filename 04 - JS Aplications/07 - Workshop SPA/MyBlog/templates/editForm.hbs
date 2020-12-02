@@ -1,23 +1,22 @@
 {{> header}}
-
-{{#if isLoggedIn}}
-<section id="home-logged">
+<main id="home-logged">
     <section class="first-section">
         <section class="background-container">
-            <form action="/create-post" method="POST">
-                <h1>Create Post</h1>
+            <form action="/edit/{{post.postId}}" method="POST" class="edit-form">
+                <h1>Edit Post</h1>
                 <label for="title">Title</label>
-                <input type="text" name="title" required>
+                <input type="text" name="title" value="{{post.title}}">
                 <label for="category">Category</label>
-                <input type="text" name="category" required>
+                <input type="text" name="category" value="{{post.category}}">
                 <label for="content">Content</label>
-                <textarea name="content" cols="30" rows="7" required></textarea>
-                <button>Submit</button>
+                <textarea name="content" cols="30" rows="7">{{post.content}}</textarea>
+                <button>Edit</button>
+                <a href="/" id="close-btn"><img src="../../images/close.png"></a>
             </form>
         </section>
     </section>
     <section class="second-section">
-        <h3>Articles</h3>
+        <h3>Posts</h3>
         <hr>
         <div class="posts-row">
             {{#each posts}}
@@ -25,28 +24,14 @@
                 <h1>{{this.title}}</h1>
                 <h2><span>{{this.category}}</span></h2>
                 <p>{{this.content}}</p>
-                {{#if isCreator}}
                 <a href="/delete/{{postId}}" id="delete-button">Delete</a>
                 <a href="/details/{{postId}}" id="details-button">Details</a>
                 <a href="/edit/{{postId}}" id="edit-button">Edit</a>
-                {{/if}}
             </article>
             {{!-- {{> postPartial}} --}}
             {{else}}
+            <span></span>
             {{/each}}
         </div>
     </section>
-</section>
-
-{{else}}
-
-<section id="home">
-    <section class="background-container">
-        <h1>Welcome to MyBlog!</h1>
-        <div class="auth-buttons">
-            <a href="/login">Login</a>
-            <a href="/register">Register</a>
-        </div>
-    </section>
-</section>
-{{/if}}
+</main>

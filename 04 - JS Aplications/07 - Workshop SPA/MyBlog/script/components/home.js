@@ -1,11 +1,15 @@
 import {getAllPosts, loadPage, errorHandler} from '../helpers.js'
 
-export function home(context) {
+export function home() {
     getAllPosts()
         .then(res => {
-            context.posts = Object.entries(res)
+            this.posts = Object.entries(res)
                 .map(([postId, data]) => { return { postId, ...data } })
-            changeContext(context);
-            loadPage.call(context, 'homePage', 'postPartial');
-        }).catch(errorHandler)
+            changeContext(this);
+            loadPage.call(this, 'homePage');
+        }).catch( err => {
+            changeContext(this);
+            loadPage.call(this, 'homePage');
+            errorHandler(err)
+        })
 }

@@ -20,7 +20,8 @@ auth.onAuthStateChanged(function (currentUser) {
     }
 });
 
-function changeContext(context) {
+function changeContext(context, isEditing) {
     context.isLoggedIn = data.isLoggedIn;
     context.email = data.email ? data.email : undefined;
+    context.isEditing = isEditing ? true : false;
 }

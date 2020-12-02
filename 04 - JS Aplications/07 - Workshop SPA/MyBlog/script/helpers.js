@@ -30,6 +30,7 @@ export function changeContext(context) {
     context.email = data.email ? data.email : undefined;
 }
 
+
 export async function getAllPosts() {
     return (await fetch(baseUrl + '.json')).json();
 }
@@ -61,5 +62,6 @@ export function errorHandler(error) {
     // }, 3000);
 
     alert(error.message)
-
+    console.error(error);
+    
 }
