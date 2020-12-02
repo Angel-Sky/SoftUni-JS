@@ -19,13 +19,13 @@
             <h3 class="my-3 ">Movie Description</h3>
             <p>{{movie.description}}</p>
             {{#if isCreator}}
-                <a class="btn btn-danger" href="#/delete/{{movie.movieId}}">Delete</a>
-                <a class="btn btn-warning" href="#/edit/{{movie.movieId}}">Edit</a>
+                <a class="btn btn-danger" href="/delete/{{movie.movieId}}">Delete</a>
+                <a class="btn btn-warning" href="/edit/{{movie.movieId}}">Edit</a>
             {{else}}
                 {{#if isLiked}}
                     <span class="enrolled-span">Liked {{this.likes}}</span>
                 {{else}}
-                    <a class="btn btn-primary" href="#/like/{{movie.movieId}}">Like</a>
+                    <a class="btn btn-primary" href="/like/{{movie.movieId}}">Like</a>
                 {{/if}}
             {{/if}}
         </div>

@@ -7,7 +7,7 @@ export function loadPage(pageName, partialName) {
     }
     this.loadPartials(partials)
         .then(function () {
-            this.partial(`./templates/${pageName}.hbs`);
+            this.partial(`../templates/${pageName}.hbs`);
         });
 }
 

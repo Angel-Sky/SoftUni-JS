@@ -23,11 +23,31 @@ $(() => {
         this.get('/home', function (context) {
             getAllMovies()
                 .then(res => {
-                    context.movies = Object.entries(res).map(([movieId, data]) => { return { movieId, ...data } })
+                    context.movies = Object.entries(res)
+                    .map(([movieId, data]) => { return { movieId, ...data } })
                     changeContext(context);
                     loadPage.call(context, 'homePage');
                 }).catch(errorHandler)
         });
+        this.get('/', function (context) {
+            getAllMovies()
+                .then(res => {
+                    context.movies = Object.entries(res)
+                    .map(([movieId, data]) => { return { movieId, ...data } })
+                    changeContext(context);
+                    loadPage.call(context, 'homePage');
+                }).catch(errorHandler)
+        });
+        this.get('index.html', function (context) {
+            getAllMovies()
+                .then(res => {
+                    context.movies = Object.entries(res)
+                    .map(([movieId, data]) => { return { movieId, ...data } })
+                    changeContext(context);
+                    loadPage.call(context, 'homePage');
+                }).catch(errorHandler)
+        });
+       
 
         this.get('/home/search', function (context) {
             const { searchedWord } = context.params;
@@ -127,6 +147,6 @@ $(() => {
         this.get('/logout', logout);
     });
 
-    app.run('/home');
+    app.run();
 });
 
