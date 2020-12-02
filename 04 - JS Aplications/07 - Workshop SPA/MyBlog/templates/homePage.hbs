@@ -21,7 +21,15 @@
         <hr>
         <div class="posts-row">
             {{#each posts}}
-            {{> postPartial}}
+            <article class="post">
+                <h1>{{this.title}}</h1>
+                <h2><span>{{this.category}}</span></h2>
+                <p>{{this.content}}</p>
+                <a href="/delete/{{postId}}" id="delete-button">Delete</a>
+                <a href="/details/{{postId}}" id="details-button">Details</a>
+                <a href="/edit/{{postId}}" id="edit-button">Edit</a>
+            </article>
+            {{!-- {{> postPartial}} --}}
             {{else}}
             {{/each}}
         </div>

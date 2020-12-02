@@ -24,7 +24,11 @@ function loadAllPartials(partials) {
     }
     return defaultPartials;
 }
-const baseUrl = 'https://my-blog-softuni.firebaseio.com/';
+
+export function changeContext(context) {
+    context.isLoggedIn = data.isLoggedIn;
+    context.email = data.email ? data.email : undefined;
+}
 
 export async function getAllPosts() {
     return (await fetch(baseUrl + '.json')).json();

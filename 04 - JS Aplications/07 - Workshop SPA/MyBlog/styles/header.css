@@ -47,3 +47,8 @@
 #header h2 span {
   color: rgb(255, 102, 0);
 }
+
+#header a {
+  color: white;
+  text-decoration: none;
+}

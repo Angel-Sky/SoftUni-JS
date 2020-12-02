@@ -1,3 +1,4 @@
+const baseUrl = 'https://my-blog-softuni.firebaseio.com/';
 firebase.initializeApp({
     apiKey: "AIzaSyBwy465BbLlHh06SFtW2K9EhwFXL3l8b-Q",
     authDomain: "my-blog-softuni.firebaseapp.com",
@@ -9,3 +10,17 @@ firebase.initializeApp({
 });
 
 const auth = firebase.auth();
+
+let data = {};
+auth.onAuthStateChanged(function (currentUser) {
+    data.isLoggedIn = Boolean(currentUser);
+    if (currentUser) {
+        data.userid = currentUser.uid;
+        data.email = currentUser.email;
+    }
+});
+
+function changeContext(context) {
+    context.isLoggedIn = data.isLoggedIn;
+    context.email = data.email ? data.email : undefined;
+}
