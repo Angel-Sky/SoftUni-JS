@@ -1,7 +1,7 @@
-@import './styles/typography.css';
-@import './styles/common.css';
-@import './styles/form.css';
-@import './styles/create.css';
-@import './styles/home.css';
-@import './styles/auth.css';
-@import './styles/details.css';
+@import './typography.css';
+@import './common.css';
+@import './form.css';
+@import './create.css';
+@import './home.css';
+@import './auth.css';
+@import './details.css';
