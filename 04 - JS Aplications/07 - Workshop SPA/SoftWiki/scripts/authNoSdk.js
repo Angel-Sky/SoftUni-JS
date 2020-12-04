@@ -1,5 +1,4 @@
-import { showMessage, errorHandler } from './helpers.js'
-const api = firebaseConfig.apiKey;
+import { errorHandler } from './helpers.js'
 const paths = {
     reg: `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${firebaseConfig.apiKey}`,
     login: `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${firebaseConfig.apiKey}`,
