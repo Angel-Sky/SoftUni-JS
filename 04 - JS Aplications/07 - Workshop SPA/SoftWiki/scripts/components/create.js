@@ -2,9 +2,9 @@ import {errorHandler} from '../helpers.js'
 
 export function create () {
     const { title, category, content } = this.params;
-    const categories = ['javascript', 'python', 'java', 'c#'];
+    const categories = ['JavaScript', 'Python', 'Java', 'C#'];
 
-    if (categories.includes(category.toLowerCase())) {
+    if (categories.includes(category)) {
         const obj = { title, category, content, creator: data.userid };
     
         fetch(baseUrl + '.json', {

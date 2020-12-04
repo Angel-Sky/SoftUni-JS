@@ -65,3 +65,27 @@ export function errorHandler(error) {
     console.error(error);
     
 }
+
+const categoryMap = {
+    'JavaScript': 'javascript',
+    'C#': 'csharp',
+    'Python': 'python',
+    'Java': 'java'
+}
+
+export function mapCategories(data) {
+    const res = {
+        javascript: [],
+        csharp: [],
+        java: [],
+        python: []
+    }
+
+    for (let id in data) {
+        console.log(data[id])
+        res[categoryMap[data[id].category]].push(data[id]);
+    }
+    //each can be article, movie, etc.
+
+    return res;
+}
