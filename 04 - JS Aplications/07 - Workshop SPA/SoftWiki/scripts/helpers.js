@@ -61,7 +61,7 @@ export function errorHandler(error) {
     //     errorBox.style.display = "none";
     // }, 3000);
 
-    alert(error.message)
+   // alert(error.message)
     console.error(error);
     
 }

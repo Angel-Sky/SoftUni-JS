@@ -7,7 +7,7 @@ export function register() {
         auth.createUserWithEmailAndPassword(email, password)
             .then((user) => {
                 this.redirect('/login')
-               // showMessage("Successful registration!", this, '/login');
+                // showMessage("Successful registration!", this, '/login');
             })
             .catch(errorHandler);
     } else {
@@ -19,7 +19,9 @@ export function register() {
 export function login() {
     const { email, password } = this.params;
     auth.signInWithEmailAndPassword(email, password)
-        .then((user) => {
+        .then((res) => {
+            const { email, uid, refreshToken } = res.user;
+            window.localStorage.setItem('user', JSON.stringify({ 'email': email, 'uid': uid, 'refreshToken': refreshToken }));
             this.redirect("/home");
             //showMessage("Logged in successfully!", this, '/home');
         })
@@ -28,8 +30,9 @@ export function login() {
 
 export function logout(context) {
     auth.signOut().then(function () {
+        window.localStorage.removeItem('user');
         context.redirect('/home');
-       // showMessage("Successfully logged out!", context, '/home');
+        // showMessage("Successfully logged out!", context, '/home');
     }).catch(errorHandler);
 }
 
