@@ -1,5 +1,4 @@
-const baseUrl = 'https://my-blog-softuni.firebaseio.com/articles/';
-firebase.initializeApp({
+var firebaseConfig = {
     apiKey: "AIzaSyBwy465BbLlHh06SFtW2K9EhwFXL3l8b-Q",
     authDomain: "my-blog-softuni.firebaseapp.com",
     databaseURL: "https://my-blog-softuni.firebaseio.com",
@@ -7,21 +6,20 @@ firebase.initializeApp({
     storageBucket: "my-blog-softuni.appspot.com",
     messagingSenderId: "21874307407",
     appId: "1:21874307407:web:e7652b3d22431bd252d53a"
-});
+};
+
+firebase.initializeApp(firebaseConfig);
 
 const auth = firebase.auth();
+const baseUrl =  firebaseConfig.databaseURL + '/articles';
 
-let data = {};
-auth.onAuthStateChanged(function (currentUser) {
-    data.isLoggedIn = Boolean(currentUser);
-    if (currentUser) {
-        data.userid = currentUser.uid;
-        data.email = currentUser.email;
+function changeContext(context) {
+    let user = sessionStorage.getItem("user");
+    if (user) {
+        context.isLoggedIn = true;
+        context.email = user.email;
+        context.userId = user.localId;
+    } else {
+        context.isLoggedIn = false;
     }
-});
-
-function changeContext(context, isEditing) {
-    context.isLoggedIn = data.isLoggedIn;
-    context.email = data.email ? data.email : undefined;
-    context.isEditing = isEditing ? true : false;
 }

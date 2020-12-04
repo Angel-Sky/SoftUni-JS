@@ -27,18 +27,12 @@ function loadAllPartials(partials) {
     return defaultPartials;
 }
 
-export function changeContext(context) {
-    context.isLoggedIn = data.isLoggedIn;
-    context.email = data.email ? data.email : undefined;
-}
-
-
 export async function getAllData() {
     return (await fetch(baseUrl + '.json')).json();
 }
 
 export async function getSpecificData(id) {
-    return (await fetch(baseUrl + id + '.json')).json();
+    return (await fetch(baseUrl + '/' + id + '.json')).json();
 }
 
 export function showMessage(message, context, redirectTo) {
@@ -89,4 +83,11 @@ export function mapCategories(data) {
     //each can be article, movie, etc.
 
     return res;
+}
+
+export function getUserData() {
+    const currentUser = sessionStorage.getItem('user');
+    if (currentUser != null) {
+        return JSON.parse(currentUser);
+    }
 }

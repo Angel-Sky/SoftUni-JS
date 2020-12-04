@@ -1,5 +1,5 @@
 import { loadPage, getAllData, getSpecificData, errorHandler } from './helpers.js';
-import { register, login, logout } from './auth.js';
+import { register, login, logout } from './authNoSdk.js';
 import { home } from './components/home.js'
 import { create } from './components/create.js';
 import { details } from './components/details.js';

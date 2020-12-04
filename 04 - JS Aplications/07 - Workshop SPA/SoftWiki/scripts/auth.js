@@ -20,8 +20,10 @@ export function login() {
     const { email, password } = this.params;
     auth.signInWithEmailAndPassword(email, password)
         .then((res) => {
-            const { email, uid, refreshToken } = res.user;
-            window.localStorage.setItem('user', JSON.stringify({ 'email': email, 'uid': uid, 'refreshToken': refreshToken }));
+            const { email, uid, refreshToken, idToken } = res.user;
+            console.log(res.user)
+            //window.localStorage.setItem('user', JSON.stringify({ 'email': email, 'uid': uid, 'refreshToken': idToken }));
+            window.localStorage.setItem('user', JSON.stringify(res));
             this.redirect("/home");
             //showMessage("Logged in successfully!", this, '/home');
         })

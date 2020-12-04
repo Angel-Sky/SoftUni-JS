@@ -1,4 +1,4 @@
-import { getSpecificData, loadPage, errorHandler } from '../helpers.js';
+import { getSpecificData, loadPage, errorHandler, getUserData } from '../helpers.js';
 
 export function loadEditFormWithInfo() {
     const { id } = this.params;
@@ -13,7 +13,9 @@ export function loadEditFormWithInfo() {
 export function editPost() {
     const { id, title, category, content } = this.params;
     const newData = { title, category, content };
-    fetch(baseUrl + id + '.json', {
+    let url = baseUrl + '/' + id + '.json' + `?auth=${getUserData().idToken}`;
+    
+    fetch(url, {
         method: 'PATCH',
         body: JSON.stringify(newData)
     }).then(() => this.redirect('/'))
