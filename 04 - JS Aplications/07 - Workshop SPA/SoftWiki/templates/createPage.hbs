@@ -1,0 +1,27 @@
+{{> header}}
+
+<div class="container">
+    <form action="/create" method="POST">
+        <fieldset>
+            <legend>Create article</legend>
+            <p class="field title">
+                <input type="text" id="title" name="title" placeholder="Arrays" required>
+                <label for="title">Title:</label>
+            </p>
+
+            <p class="field category">
+                <input type="text" id="category" name="category" placeholder="JavaScript" required>
+                <label for="category">Category:</label>
+            </p>
+            <p class="field content">
+                <textarea name="content" id="content" required></textarea>
+                <label for="content">Content:</label>
+            </p>
+
+            <p class="field submit">
+                <button class="btn submit" type="submit">Create</button>
+            </p>
+
+        </fieldset>
+    </form>
+</div>

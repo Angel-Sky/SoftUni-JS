@@ -1,0 +1,27 @@
+{{> header}}
+
+<div class="container">
+    <form action="/edit/{{articleId}}" method="POST">
+        <fieldset>
+            <legend>Edit article</legend>
+            <p class="field title">
+                <input type="text" name="title" id="title" placeholder="{{article.name}}" required>
+                <label for="title">Title:</label>
+            </p>
+
+            <p class="field category">
+                <input type="text" name="category" id="category" placeholder="{{article.category}}" required>
+                <label for="category">Category:</label>
+            </p>
+            <p class="field content">
+                <textarea name="content" id="content" required>{{article.content}}</textarea>
+                <label for="content">Content:</label>
+            </p>
+
+            <p class="field submit">
+                <button class="btn submit" type="submit">Edit</button>
+            </p>
+
+        </fieldset>
+    </form>
+</div>
