@@ -15,6 +15,7 @@ export function register() {
             },
             body: JSON.stringify({ email, password, returnSecureToken: true })
         }).then(() => this.redirect('/login'))
+        .catch(errorHandler)
     } else {
         let error = { message: 'Passwords do not match.' };
         errorHandler(error)
