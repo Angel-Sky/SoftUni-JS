@@ -5,9 +5,12 @@
         <strong>{{article.category}}</strong>
         <p>{{article.content}}</p>
         <div class="buttons">
-            <a href="#delete/{{article.articleId}}" class="btn delete">Delete</a>
-            <a href="#edit/{{article.articleId}}" class="btn edit">Edit</a>
+            {{#if isCreator}}
+            <a href="#/delete/{{article.id}}" class="btn delete">Delete</a>
+            <a href="#/edit/{{article.id}}" class="btn edit">Edit</a>
+            {{else}}
             <a href="/" class="btn edit">Back</a>
+            {{/if}}
         </div>
     </div>
 </div>

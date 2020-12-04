@@ -2,7 +2,7 @@ import { loadPage, getAllData, getSpecificData, errorHandler } from './helpers.j
 import { register, login, logout } from './auth.js';
 import { home } from './components/home.js'
 import { create } from './components/create.js';
-// import { details } from './components/details.js';
+import { details } from './components/details.js';
 // import { deletePost } from './components/delete.js';
 // import { loadEditFormWithInfo, editPost } from './components/edit.js';
 
@@ -16,7 +16,7 @@ $(() => {
 
         this.get('/create', (context) => {loadPage.call(context, 'createPage'); changeContext(context)});
         this.post('/create', create);
-        // this.get('/details/:postId', details);
+        this.get('/details/:id', details);
         // this.get('/delete/:postId', deletePost);
         // this.get('/edit/:postId', loadEditFormWithInfo);
         // this.post('/edit/:postId', editPost);

@@ -1,14 +1,14 @@
-import { getSpecificPost, loadPage, errorHandler } from '../helpers.js';
+import { getSpecificData, loadPage, errorHandler } from '../helpers.js';
 
 export function details() {
-    const { postId } = this.params;
-    getSpecificPost(postId)
+    const { id } = this.params;
+    getSpecificData(id)
         .then(res => {
             console.log(res)
             if (res.creator === data.userid) {
                 this.isCreator = true;
             }
-            this.post = { postId, ...res }
+            this.article = { id, ...res }
             changeContext(this)
             loadPage.call(this, 'detailsPage');
         })

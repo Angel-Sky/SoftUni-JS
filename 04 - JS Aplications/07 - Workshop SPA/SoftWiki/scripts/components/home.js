@@ -1,7 +1,7 @@
-import { getAllData, loadPage, mapCategories, errorHandler } from '../helpers.js'
+import { getAllData, loadPage, mapCategories } from '../helpers.js'
 
 export async function home() {
-    this.articles = mapCategories(await getAllData());
     changeContext(this);
+    this.articles = mapCategories(await getAllData());
     loadPage.call(this, 'homePage');
 }

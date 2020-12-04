@@ -82,8 +82,7 @@ export function mapCategories(data) {
     }
 
     for (let id in data) {
-        console.log(data[id])
-        res[categoryMap[data[id].category]].push(data[id]);
+        res[categoryMap[data[id].category]].push({id, ...data[id]});
     }
     //each can be article, movie, etc.
 
