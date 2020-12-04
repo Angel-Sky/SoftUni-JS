@@ -1,4 +1,4 @@
-const baseUrl = 'https://my-blog-softuni.firebaseio.com/';
+const baseUrl = 'https://my-blog-softuni.firebaseio.com/articles/';
 firebase.initializeApp({
     apiKey: "AIzaSyBwy465BbLlHh06SFtW2K9EhwFXL3l8b-Q",
     authDomain: "my-blog-softuni.firebaseapp.com",

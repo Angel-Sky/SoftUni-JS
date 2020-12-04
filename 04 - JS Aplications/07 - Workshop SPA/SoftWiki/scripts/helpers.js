@@ -31,11 +31,11 @@ export function changeContext(context) {
 }
 
 
-export async function getAllPosts() {
+export async function getAllData() {
     return (await fetch(baseUrl + '.json')).json();
 }
 
-export async function getSpecificPost(id) {
+export async function getSpecificData(id) {
     return (await fetch(baseUrl + id + '.json')).json();
 }
 
