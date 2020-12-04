@@ -1,16 +1,16 @@
 {{> header}}
 
 <div class="container">
-    <form action="/edit/{{articleId}}" method="POST">
+    <form action="/edit/{{article.id}}" method="POST">
         <fieldset>
             <legend>Edit article</legend>
             <p class="field title">
-                <input type="text" name="title" id="title" placeholder="{{article.title}}" required>
+                <input type="text" name="title" id="title" placeholder="Arrays" value="{{article.title}}" required>
                 <label for="title">Title:</label>
             </p>
 
             <p class="field category">
-                <input type="text" name="category" id="category" placeholder="{{article.category}}" required>
+                <input type="text" name="category" id="category" placeholder="JavaScript" value="{{article.category}}" required>
                 <label for="category">Category:</label>
             </p>
             <p class="field content">

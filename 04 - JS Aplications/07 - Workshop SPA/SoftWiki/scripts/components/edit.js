@@ -1,20 +1,19 @@
-import { getSpecificPost, loadPage, errorHandler } from '../helpers.js';
+import { getSpecificData, loadPage, errorHandler } from '../helpers.js';
 
 export function loadEditFormWithInfo() {
-    const { postId } = this.params;
-    getSpecificPost(postId)
+    const { id } = this.params;
+    getSpecificData(id)
         .then(res => {
-            this.post = { postId, ...res };
-            let isEditing = true;
-            changeContext(this, isEditing)
-            loadPage.call(this, 'editForm');
+            this.article = { id, ...res };
+            changeContext(this)
+            loadPage.call(this, 'editPage');
         });
 }
 
 export function editPost() {
-    const { postId, title, category, content } = this.params;
+    const { id, title, category, content } = this.params;
     const newData = { title, category, content };
-    fetch(baseUrl + postId + '.json', {
+    fetch(baseUrl + id + '.json', {
         method: 'PATCH',
         body: JSON.stringify(newData)
     }).then(() => this.redirect('/'))
