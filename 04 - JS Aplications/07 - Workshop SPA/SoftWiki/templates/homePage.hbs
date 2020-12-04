@@ -20,11 +20,7 @@
         <h2>C#</h2>
         <div class="articles">
             {{#each articles.csharp}}
-            <article>
-                <h3>{{this.title}}</h3>
-                <p>{{this.content}}</p>
-                <a href="#/details/{{this.id}}" class="btn details-btn">Details</a>
-            </article>
+            {{> article}}
             {{else}}
             <h3 class="no-articles">No articles yet</h3>
             {{/each}}
@@ -35,11 +31,7 @@
         <h2>Java</h2>
         <div class="articles">
             {{#each articles.java}}
-            <article>
-                <h3>{{this.title}}</h3>
-                <p>{{this.content}}</p>
-                <a href="#/details/{{this.id}}" class="btn details-btn">Details</a>
-            </article>
+            {{> article}}
             {{else}}
             <h3 class="no-articles">No articles yet</h3>
             {{/each}}
@@ -50,11 +42,7 @@
         <h2>Pyton</h2>
         <div class="articles">
             {{#each articles.python}}
-            <article>
-                <h3>{{this.title}}</h3>
-                <p>{{this.content}}</p>
-                <a href="#/details/{{this.id}}" class="btn details-btn">Details</a>
-            </article>
+            {{> article}}
             {{else}}
             <h3 class="no-articles">No articles yet</h3>
             {{/each}}

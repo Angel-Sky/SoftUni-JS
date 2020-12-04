@@ -1,7 +1,9 @@
 export function loadPage(pageName, partialName) {
     let partials;
     if (partialName) {
-        partials = loadAllPartials({ partialName: `./templates/${partialName}.hbs` });
+        let obj = {};
+        obj[partialName] = `./templates/${partialName}.hbs`;
+        partials = loadAllPartials(obj);
     } else {
         partials = loadAllPartials({});
     }
@@ -18,6 +20,7 @@ function loadAllPartials(partials) {
     };
 
     for (const key in partials) {
+        console.log(partials[key])
         if (partials.hasOwnProperty(key)) {
             defaultPartials[key] = partials[key];
         }
