@@ -1,8 +1,8 @@
 import {errorHandler} from '../helpers.js'
 
 export function deletePost() {
-    const { postId } = this.params;
-    fetch(baseUrl + postId + '.json', {
+    const { id } = this.params;
+    fetch(baseUrl + id + '.json', {
         method: "DELETE"
     }).then(() => this.redirect('/'))
         .catch(errorHandler)
