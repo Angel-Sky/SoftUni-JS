@@ -9,8 +9,8 @@ export function details() {
             if (res.creator === creatorId) {
                 this.isCreator = true;
             }
-            
-            this.article = { id, ...res }
+            this.idea = { id, ...res }
+            this.idea.likesLength = res.likes.length - 1;
             changeContext(this)
             loadPage.call(this, 'detailsPage');
         })

@@ -1,29 +1,32 @@
 {{> header}}
 <div class="container home some">
-    <img class="det-img" src="{{recipe.imageUrl}}" />
+    <img class="det-img" src="{{idea.imageURL}}" />
     <div class="desc">
-        <h2 class="display-5">{{recipe.title}}</h2>
+        <h2 class="display-5">{{idea.title}}</h2>
         <p class="infoType">Description:</p>
-        <p class="idea-description">{{recipe.description}}</p>
-        <p class="infoType">Likes: <large>{{recipe.likes}}</large>
+        <p class="idea-description">{{idea.description}}</p>
+        <p class="infoType">Likes: <large>{{idea.likesLength}}</large>
         </p>
         <p class="infoType">Comments:</p>
         <ul>
-            {{#each recipe.comments}}
+            {{#each idea.commentsArray}}
             <li class="comment">{{this.comment}}</li>
             {{else}}
             <li class="comment">No comments yet :(</li>
             {{/each}}
         </ul>
     </div>
+    {{#if isCreator}}
     <div class="text-center">
-        <a class="btn detb" href="#/delete/{{recipe.id}}">Delete</a>
+        <a class="btn detb" href="#/delete/{{idea.id}}">Delete</a>
     </div>
-    <form class="text-center" method="POST" action="/comment/{{recipe.id}}">
+    {{else}}
+    <form class="text-center" method="POST" action="/comment/{{idea.id}}">
         <textarea class="textarea-det" name="newComment" id=""></textarea>
         <button type="submit" class="btn detb">Comment</button>
-        <a class="btn detb" href="#/like/{{recipe.id}}">Like</a>
+        <a class="btn detb" href="#/like/{{idea.id}}">Like</a>
     </form>
+    {{/if}}
 </div>
 
 {{> footer}}
