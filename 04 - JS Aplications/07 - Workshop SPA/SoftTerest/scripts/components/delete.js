@@ -7,3 +7,5 @@ export function deletePost() {
     }).then(() => this.redirect('/'))
         .catch(errorHandler)
 }
+
+//??? да се добави token
