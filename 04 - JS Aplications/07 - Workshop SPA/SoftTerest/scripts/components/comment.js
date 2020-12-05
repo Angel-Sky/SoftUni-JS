@@ -8,6 +8,10 @@ export function comment(context) {
         .then(res => {
             let commentsArr = res.comments;
             commentsArr.push(newComment);
+            if (commentsArr.includes('No comments yet :(')) {
+                let indexOfNone = commentsArr.indexOf('No comments yet :(');
+                commentsArr.splice(indexOfNone, 1);
+            }
             return commentsArr;
         })
         .then(commentsArr => {

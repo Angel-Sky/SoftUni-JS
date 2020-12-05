@@ -3,7 +3,7 @@ import { errorHandler, getUserData } from '../helpers.js'
 export function create() {
     const { title, description, imageURL } = this.params;
     const url = baseUrl + `.json?auth=${getUserData().idToken}`
-    const obj = { title, description, imageURL, creator: getUserData().localId, 'likes': [getUserData().email], 'comments': ['none'],};
+    const obj = { title, description, imageURL, creator: getUserData().localId, 'likes': [getUserData().email], 'comments': ['No comments yet :('],};
 
     //Validation
     if (title.length < 6) {
