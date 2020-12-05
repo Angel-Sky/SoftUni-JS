@@ -9,8 +9,8 @@
         </p>
         <p class="infoType">Comments:</p>
         <ul>
-            {{#each idea.commentsArray}}
-            <li class="comment">{{this.comment}}</li>
+            {{#each idea.comments}}
+            <li class="comment">{{this}}</li>
             {{else}}
             <li class="comment">No comments yet :(</li>
             {{/each}}
@@ -21,7 +21,7 @@
         <a class="btn detb" href="#/delete/{{idea.id}}">Delete</a>
     </div>
     {{else}}
-    <form class="text-center" method="POST" action="/comment/{{idea.id}}">
+    <form class="text-center" method="POST" action="#/comment/{{idea.id}}">
         <textarea class="textarea-det" name="newComment" id=""></textarea>
         <button type="submit" class="btn detb">Comment</button>
         <a class="btn detb" href="#/like/{{idea.id}}">Like</a>

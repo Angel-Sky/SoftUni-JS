@@ -5,6 +5,7 @@ import { create } from './components/create.js';
 import { details } from './components/details.js';
 import { deletePost } from './components/delete.js';
 import { like } from './components/like.js';
+import { comment } from './components/comment.js';
 
 $(() => {
     const app = Sammy("body", function () {
@@ -19,6 +20,7 @@ $(() => {
         this.get('/details/:id', details);
         this.get('/delete/:id', deletePost);
         this.get('/like/:id', like);
+        this.post('/comment/:id', comment)
 
 
         //Authorization
