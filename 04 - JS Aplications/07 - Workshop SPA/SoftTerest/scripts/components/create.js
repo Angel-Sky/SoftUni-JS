@@ -23,7 +23,7 @@ export function create() {
         return;
     }
     let startOfUrl = imageURL.substring(0, 8);
-    console.log(startOfUrl)
+    
     if (startOfUrl.includes("https://") || startOfUrl.includes("http://")) {
         fetch(url, {
             method: "POST",
