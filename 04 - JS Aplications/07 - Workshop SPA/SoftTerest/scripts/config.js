@@ -17,8 +17,8 @@ function changeContext(context) {
     let user = sessionStorage.getItem("user");
     if (user) {
         context.isLoggedIn = true;
-        context.email = user.email;
-        context.userId = user.localId;
+        context.email = JSON.parse(user).email;
+        context.userId = JSON.parse(user).localId;
     } else {
         context.isLoggedIn = false;
     }

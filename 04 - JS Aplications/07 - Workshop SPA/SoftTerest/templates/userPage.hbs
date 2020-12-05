@@ -4,11 +4,11 @@
     <div class="profile home-text col-md-6 text-center col-lg">
         <img class="profile-img" src="./images/user.png" />
         <div class="profile-info">
-            <p>Username: <small>{{username}}</small></p>
+            <p>Email: <small>{{email}}</small></p>
             {{#if hasIdeas}}
-                <p class="infoType">Has {{ideas}} ideas =)</p>
+                <p class="infoType">Has {{ideasLength}} ideas =)</p>
                 {{#each ideas}}
-                    <p>{{this.title}}</p>
+                    <p>{{this}}</p>
                 {{/each}}
             {{else}}
                 <p>No ideas yet</p>
