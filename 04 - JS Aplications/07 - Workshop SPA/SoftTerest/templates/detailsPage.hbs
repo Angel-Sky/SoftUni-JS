@@ -1,4 +1,29 @@
 {{> header}}
-
+<div class="container home some">
+    <img class="det-img" src="{{recipe.imageUrl}}" />
+    <div class="desc">
+        <h2 class="display-5">{{recipe.title}}</h2>
+        <p class="infoType">Description:</p>
+        <p class="idea-description">{{recipe.description}}</p>
+        <p class="infoType">Likes: <large>{{recipe.likes}}</large>
+        </p>
+        <p class="infoType">Comments:</p>
+        <ul>
+            {{#each recipe.comments}}
+            <li class="comment">{{this.comment}}</li>
+            {{else}}
+            <li class="comment">No comments yet :(</li>
+            {{/each}}
+        </ul>
+    </div>
+    <div class="text-center">
+        <a class="btn detb" href="#/delete/{{recipe.id}}">Delete</a>
+    </div>
+    <form class="text-center" method="POST" action="/comment/{{recipe.id}}">
+        <textarea class="textarea-det" name="newComment" id=""></textarea>
+        <button type="submit" class="btn detb">Comment</button>
+        <a class="btn detb" href="#/like/{{recipe.id}}">Like</a>
+    </form>
+</div>
 
 {{> footer}}
