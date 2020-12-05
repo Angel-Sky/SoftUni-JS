@@ -37,7 +37,6 @@ export function create() {
     } else {
         const error = { message: "The image should start with \"http://\" or \"https://\"."};
         errorHandler(error);
-        return;
     }
 
     

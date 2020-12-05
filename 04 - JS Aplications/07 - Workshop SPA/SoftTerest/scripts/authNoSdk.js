@@ -33,14 +33,14 @@ export function login() {
     })
         .then(res => res.json())
         .then(res => {
-            sessionStorage.setItem('user', JSON.stringify(res));
+            localStorage.setItem('user', JSON.stringify(res));
             this.redirect("/");
         })
         .catch(errorHandler);
 }
 
 export function logout(context) {
-    sessionStorage.removeItem('user');
+    localStorage.removeItem('user');
     context.redirect('/login');
 }
 

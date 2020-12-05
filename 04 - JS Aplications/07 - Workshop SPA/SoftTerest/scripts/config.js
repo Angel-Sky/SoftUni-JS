@@ -14,11 +14,11 @@ const auth = firebase.auth();
 const baseUrl =  firebaseConfig.databaseURL + '/ideas';
 
 function changeContext(context) {
-    let user = sessionStorage.getItem("user");
+    let user = JSON.parse(localStorage.getItem("user"));
     if (user) {
         context.isLoggedIn = true;
-        context.email = JSON.parse(user).email;
-        context.userId = JSON.parse(user).localId;
+        context.email = user.email;
+        context.userId = user.localId;
     } else {
         context.isLoggedIn = false;
     }

@@ -86,7 +86,7 @@ export function mapCategories(data) {
 }
 
 export function getUserData() {
-    const currentUser = sessionStorage.getItem('user');
+    const currentUser = localStorage.getItem('user');
     if (currentUser != null) {
         return JSON.parse(currentUser);
     }
