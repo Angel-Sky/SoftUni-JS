@@ -7,17 +7,8 @@ export function comment(context) {
     getSpecificData(id)
         .then(res => {
             let commentsArr = res.comments;
-            this.idea.comments = commentsArr; 
-            //const currentUserEmail = getUserData().email;
-            // if (commentsArr.includes(currentUserEmail)) {
-            //     const error = { message: "You have already liked this idea!" };
-            //     errorHandler(error);
-            //     return
-            // } else {
             commentsArr.push(newComment);
-            context.commentsArray = commentsArr;
             return commentsArr;
-            //}
         })
         .then(commentsArr => {
             fetch(url, {
