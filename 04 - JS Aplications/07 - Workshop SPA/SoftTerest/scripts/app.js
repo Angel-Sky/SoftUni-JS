@@ -1,7 +1,7 @@
 import { loadPage, getAllData, getSpecificData, errorHandler } from './helpers.js';
 import { register, login, logout } from './authNoSdk.js';
 import { home } from './components/home.js'
-// import { create } from './components/create.js';
+import { create } from './components/create.js';
 // import { details } from './components/details.js';
 // import { deletePost } from './components/delete.js';
 // import { loadEditFormWithInfo, editPost } from './components/edit.js';
@@ -14,8 +14,8 @@ $(() => {
         this.get('/home', home);
         this.get('/', home);
 
-        // this.get('/create', (context) => {loadPage.call(context, 'createPage'); changeContext(context)});
-        // this.post('/create', create);
+        this.get('/create', (context) => {loadPage.call(context, 'createPage'); changeContext(context)});
+        this.post('/create', create);
         // this.get('/details/:id', details);
         // this.get('/delete/:id', deletePost);
         // this.get('/edit/:id', loadEditFormWithInfo);
