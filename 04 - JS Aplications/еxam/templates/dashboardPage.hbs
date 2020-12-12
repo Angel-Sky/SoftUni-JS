@@ -1,0 +1,29 @@
+{{> header}}
+{{> notifications}}
+
+<section id="viewMydestinations">
+    <h3>Your destinations</h3>
+    {{#each destinations}}
+    <div class="destination-ticket">
+        <div class="destination-left">
+            <img src="{{this.imgUrl}}"
+                alt="">
+        </div>
+        <div class="destination-right">
+            <div>
+                <h3>{{this.destination}}</h3><span>{{this.departureDate}}</span>
+            </div>
+            <div>
+                to {{this.city}}
+            </div>
+            <p>{{this.duration}} days </p>
+            <a href="#/remove/{{this.id}}" class="remove">REMOVE</a>
+            <a href="#/details/{{this.id}}" class="details">Details</a>
+        </div>
+    </div>
+    {{else}} 
+        <h3 id="noDestinations">You do not have any destinations yet! <a href="/add">Add</a> one!</h2>
+    {{/each}}
+</section>
+
+{{> footer}}

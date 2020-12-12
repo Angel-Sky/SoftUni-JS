@@ -1,0 +1,25 @@
+{{> header}}
+{{> notifications}}
+<section id="viewdestinationDetails">
+    <div class="destination-area">
+        <div class="destination-area-left">
+            <img src="{{destination.imgUrl}}"
+                alt="">
+        </div>
+        <div class="destination-area-right">
+            <h3>{{destination.destination}}</h3>
+            <div>to {{destination.city}}</div>
+            <div class="data-and-time">
+                {{destination.departureDate}}
+                {{#if isCreator}}
+                <a href="#/edit/{{destination.id}}" class="edit-destination-detail"></a>
+                {{/if}}
+            </div>
+            <div>
+                {{destination.duration}} days
+            </div>
+        </div>
+    </div>
+</section>
+
+{{> footer}}
