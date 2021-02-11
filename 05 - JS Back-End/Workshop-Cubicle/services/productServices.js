@@ -3,6 +3,9 @@ const uniqid = require('uniqid');
 const fs = require('fs');
 let productsData = require('../config/products.json');
 
+function getAllProducts() {
+    return productsData;
+}
 
 function create(data) {
     const {name, description, imageUrl, difficultyLevel} = data;
@@ -17,5 +20,6 @@ function create(data) {
 }
 
 module.exports = {
-    create
+    create,
+    getAllProducts
 }

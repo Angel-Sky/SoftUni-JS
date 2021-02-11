@@ -3,7 +3,7 @@ const router = Router();
 const productService = require('../services/productServices');
 
 router.get('/create', (req, res) => {
-    res.render('create', {title: 'Create'})
+    res.render('create', {title: 'Create'});
 });
 
 router.post('/create', (req, res) => {

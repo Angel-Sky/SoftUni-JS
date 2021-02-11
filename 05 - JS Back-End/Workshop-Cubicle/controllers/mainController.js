@@ -1,8 +1,10 @@
 const {Router} = require('express');
 const router = Router();
+const productServices = require('../services/productServices')
 
 router.get('/', (req, res) => {
-    res.render('home', {title: 'Cubicle'})
+    let products = productServices.getAllProducts();
+    res.render('home', {title: 'Cubicle', products})
 });
 
 router.get('/about', (req, res) => {
