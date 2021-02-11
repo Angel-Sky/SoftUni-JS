@@ -3,7 +3,7 @@ const router = Router();
 const productServices = require('../services/productServices')
 
 router.get('/', (req, res) => {
-    let products = productServices.getAllProducts();
+    let products = productServices.getAllProducts(req.query);
     res.render('home', {title: 'Cubicle', products})
 });
 

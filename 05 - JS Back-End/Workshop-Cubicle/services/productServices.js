@@ -4,8 +4,22 @@ const fs = require('fs/promises');
 const path = require('path');
 let productsData = require('../config/products.json');
 
-function getAllProducts() {
-    return productsData;
+function getAllProducts(query) {
+    let result = productsData;
+
+    if (query.search) {
+        result = result.filter(x => x.name.toLowerCase().includes(query.search.toLowerCase()));
+    }
+
+    if (query.from) {
+        result = result.filter(x => x.difficultyLevel >= query.from);
+    }
+
+    if (query.to) {
+        result = result.filter(x => x.difficultyLevel <= query.to);
+    }
+
+    return result;
 }
 
 function getSpecific(id) {
