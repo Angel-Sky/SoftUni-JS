@@ -1,23 +1,33 @@
-const {Router} = require('express');
+const { Router } = require('express');
 const router = Router();
 const productService = require('../services/productServices');
 
 router.get('/create', (req, res) => {
-    res.render('create', {title: 'Create'});
+    res.render('create', { title: 'Create' });
 });
 
-router.post('/create', (req, res) => {
-    const {name, description, imageUrl, difficultyLevel} = req.body;
-    if (name.trim().length == "" || description.trim().length == "" || imageUrl.trim().length == "") {
-        return;
-    }
-    productService.create(req.body);
-    res.redirect('/');
+router.post('/create', validateInput, (req, res) => {
+    productService.create(req.body)
+        .then(() => res.redirect('/'))
+        .catch((err) => console.error(err));
 });
 
 router.get('/details/:id', (req, res) => {
     let product = productService.getSpecific(req.params.id);
-    res.render('details', {title: 'Details', product})
+    res.render('details', { title: 'Details', product })
 });
+
+
+function validateInput(req, res, next) {
+    const { name, description, imageUrl, difficultyLevel } = req.body;
+    let isValid = true;
+    if (name.trim().length == "" || description.trim().length == "" || imageUrl.trim().length == "") {
+        isValid = false;
+    }
+
+    if (isValid) {
+        next();
+    }
+}
 
 module.exports = router;

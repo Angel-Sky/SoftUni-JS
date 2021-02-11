@@ -1,6 +1,6 @@
 const Cube = require('../models/Cube');
 const uniqid = require('uniqid');
-const fs = require('fs');
+const fs = require('fs/promises');
 const path = require('path');
 let productsData = require('../config/products.json');
 
@@ -15,13 +15,8 @@ function getSpecific(id) {
 function create(data) {
     const {name, description, imageUrl, difficultyLevel} = data;
     let cube = new Cube(uniqid(), name, description, imageUrl, difficultyLevel);
-    console.log(cube);
     productsData.push(cube);
-    fs.writeFile(path.join(__dirname, '../config/products.json'), JSON.stringify(productsData), (err) => {
-        if (err) {
-            return console.error(err);
-        }
-    })
+    return fs.writeFile(path.join(__dirname, '../config/products.json'), JSON.stringify(productsData));
 }
 
 module.exports = {
