@@ -7,6 +7,10 @@ function getAllProducts() {
     return productsData;
 }
 
+function getSpecific(id) {
+    return productsData.find(x => x.id == id);
+}
+
 function create(data) {
     const {name, description, imageUrl, difficultyLevel} = data;
     let cube = new Cube(uniqid(), name, description, imageUrl, difficultyLevel);
@@ -21,5 +25,6 @@ function create(data) {
 
 module.exports = {
     create,
-    getAllProducts
+    getAllProducts,
+    getSpecific
 }
