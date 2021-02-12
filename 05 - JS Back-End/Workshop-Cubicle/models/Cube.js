@@ -1,4 +1,6 @@
-class Cube {
+const DataModel = require('./DataModel')
+
+class Cube extends DataModel{
     constructor(id, name, description, imageUrl, difficultyLevel) {
         this.id = id;
         this.name = name;
