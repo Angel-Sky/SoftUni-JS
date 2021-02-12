@@ -1,5 +1,5 @@
 const Cube = require('../models/Cube');
-const productData = require('../data/data')
+//const productData = require('../data/data')
 
 async function getAllProducts(query) {
     //let products = Cube.getAll();
@@ -27,7 +27,7 @@ async function getSpecific(id) {
 }
 
 function create(data) {
-    const {name, description, imageUrl, difficultyLevel} = data;
+   // const {name, description, imageUrl, difficultyLevel} = data;
     const cube = new Cube(data);
 
     return cube.save()
