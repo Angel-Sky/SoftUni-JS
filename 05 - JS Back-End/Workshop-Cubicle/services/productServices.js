@@ -27,6 +27,10 @@ async function getSpecific(id) {
     return await Cube.findById(id).lean();
 }
 
+async function getOneWithAccessories(id) {
+    return await Cube.findById(id).populate('accessories').lean();
+}
+
 function create(data) {
    // const {name, description, imageUrl, difficultyLevel} = data;
     const cube = new Cube(data);
@@ -45,5 +49,6 @@ module.exports = {
     create,
     getAllProducts,
     getSpecific,
+    getOneWithAccessories,
     attachAccessory
 }

@@ -13,13 +13,17 @@ router.post('/create', validateInput, (req, res) => {
         .catch((err) => console.error(err));
 });
 
-router.get('/details/:id', (req, res) => {
+router.get('/details/:id', async (req, res) => {
     // let product = productService.getSpecific(req.params.id);
     // res.render('details', { title: 'Details', product })
 
-    productService.getSpecific(req.params.id)
-        .then((product) => res.render('details', { title: 'Details', product }))
-        .catch()
+    // productService.getSpecific(req.params.id)
+    //     .then((product) => res.render('details', { title: 'Details', product }))
+    //     .catch()
+
+    let product = await productService.getOneWithAccessories(req.params.id);
+    console.log(product)
+    res.render('details', { title: 'Attach Accessory', product})
 
 });
 
