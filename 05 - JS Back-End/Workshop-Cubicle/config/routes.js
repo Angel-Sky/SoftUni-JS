@@ -8,7 +8,7 @@ router.use(mainController);
 router.use(productController);
 router.use('/accessories', accessoryController);
 router.get("*", (req, res) => {
-    res.render('404', {layout: false})
+    res.render('404')
 });
 
 module.exports = router;

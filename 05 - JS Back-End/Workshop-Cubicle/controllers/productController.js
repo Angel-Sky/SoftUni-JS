@@ -1,6 +1,7 @@
 const { Router } = require('express');
 const router = Router();
 const productService = require('../services/productServices');
+const accessoryService = require('../services/accessoryService');
 
 router.get('/create', (req, res) => {
     res.render('create', { title: 'Create' });
@@ -20,6 +21,13 @@ router.get('/details/:id', (req, res) => {
         .then((product) => res.render('details', { title: 'Details', product }))
         .catch()
 
+});
+
+router.get('/:id/attach-accessory', async (req, res) => {
+    let product = await productService.getSpecific(req.params.id);
+    let accessories = await accessoryService.getAll();
+    
+    res.render('attachAccessory', { title: 'Attach Accessory', product, accessories })
 });
 
 
