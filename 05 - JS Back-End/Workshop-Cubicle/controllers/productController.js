@@ -26,8 +26,14 @@ router.get('/details/:id', (req, res) => {
 router.get('/:id/attach-accessory', async (req, res) => {
     let product = await productService.getSpecific(req.params.id);
     let accessories = await accessoryService.getAll();
-    
+
     res.render('attachAccessory', { title: 'Attach Accessory', product, accessories })
+});
+
+router.post('/:id/attach-accessory', (req, res) => {
+    productService.attachAccessory(req.params.id, req.body.accessory)
+        .then(() => res.redirect(`/details/${req.params.id}`))
+
 });
 
 
