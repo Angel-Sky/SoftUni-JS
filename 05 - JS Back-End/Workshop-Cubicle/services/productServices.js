@@ -20,10 +20,10 @@ async function getAllProducts(query) {
     return products;
 }
 
-function getSpecific(id) {
+async function getSpecific(id) {
     //return Cube.getOne(id);
     //return productData.getOne(id);
-    return Cube.findById(id).lean();
+    return await Cube.findById(id).lean();
 }
 
 function create(data) {

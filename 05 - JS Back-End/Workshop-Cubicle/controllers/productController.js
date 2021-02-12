@@ -13,8 +13,13 @@ router.post('/create', validateInput, (req, res) => {
 });
 
 router.get('/details/:id', (req, res) => {
-    let product = productService.getSpecific(req.params.id);
-    res.render('details', { title: 'Details', product })
+    // let product = productService.getSpecific(req.params.id);
+    // res.render('details', { title: 'Details', product })
+
+    productService.getSpecific(req.params.id)
+        .then((product) => res.render('details', { title: 'Details', product }))
+        .catch()
+
 });
 
 
