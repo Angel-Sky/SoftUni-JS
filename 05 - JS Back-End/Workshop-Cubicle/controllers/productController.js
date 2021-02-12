@@ -14,22 +14,13 @@ router.post('/create', validateInput, (req, res) => {
 });
 
 router.get('/details/:id', async (req, res) => {
-    // let product = productService.getSpecific(req.params.id);
-    // res.render('details', { title: 'Details', product })
-
-    // productService.getSpecific(req.params.id)
-    //     .then((product) => res.render('details', { title: 'Details', product }))
-    //     .catch()
-
     let product = await productService.getOneWithAccessories(req.params.id);
-    console.log(product)
-    res.render('details', { title: 'Attach Accessory', product})
-
+    res.render('details', { title: 'Attach Accessory', product })
 });
 
 router.get('/:id/attach-accessory', async (req, res) => {
     let product = await productService.getSpecific(req.params.id);
-    let accessories = await accessoryService.getAll();
+    let accessories = await accessoryService.getAllUnattached(product.accessories);
 
     res.render('attachAccessory', { title: 'Attach Accessory', product, accessories })
 });
