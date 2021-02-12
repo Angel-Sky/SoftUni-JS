@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const accessorySchema = require('./Accessory')
+
 const cubeSchema = new mongoose.Schema({
     name: {
         type: String,
