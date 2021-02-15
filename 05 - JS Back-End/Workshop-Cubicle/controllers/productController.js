@@ -45,6 +45,20 @@ router.post('/:id/edit', isAuthenticated, async (req, res) => {
     }
 });
 
+router.get('/:id/delete', isAuthenticated, async (req, res) => {
+    let product = await productService.getSpecific(req.params.id);
+    res.render('delete', { title: 'Delete Product', product })
+});
+
+router.post('/:id/delete', isAuthenticated, async (req, res) => {
+    try {
+        await productService.deleteCube(req.params.id);
+        res.redirect(`/`);
+    } catch (error) {
+        console.log(error);     
+    }
+});
+
 
 function validateInput(req, res, next) {
     const { name, description, imageUrl, difficultyLevel } = req.body;

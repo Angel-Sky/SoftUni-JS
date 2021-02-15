@@ -32,8 +32,11 @@ async function getOneWithAccessories(id) {
 }
 
 async function update(id, data) {
-    let product = await Cube.updateOne({_id: id}, data);
-    return product;
+    return await Cube.updateOne({_id: id}, data);
+}
+
+async function deleteCube(id) {
+    return await Cube.deleteOne({_id: id});
 }
 
 function create(data) {
@@ -56,5 +59,6 @@ module.exports = {
     getSpecific,
     getOneWithAccessories,
     attachAccessory,
-    update
+    update,
+    deleteCube
 }
