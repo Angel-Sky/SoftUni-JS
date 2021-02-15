@@ -9,7 +9,7 @@ router.get('/create', isAuthenticated, (req, res) => {
 });
 
 router.post('/create', isAuthenticated, validateInput, (req, res) => {
-    productService.create(req.body)
+    productService.create(req.body, req.user._id)
         .then(() => res.redirect('/'))
         .catch((err) => console.error(err));
 });
@@ -36,7 +36,7 @@ router.get('/:id/edit', isAuthenticated, async (req, res) => {
     res.render('edit', { title: 'Edit Product', product })
 });
 
-router.post('/:id/edit', isAuthenticated, async (req, res) => {
+router.post('/:id/edit', isAuthenticated, validateInput, async (req, res) => {
     try {
         await productService.update(req.params.id, req.body);
         res.redirect(`/details/${req.params.id}`)

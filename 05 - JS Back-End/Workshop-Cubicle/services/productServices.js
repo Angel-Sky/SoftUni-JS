@@ -39,10 +39,8 @@ async function deleteCube(id) {
     return await Cube.deleteOne({_id: id});
 }
 
-function create(data) {
-   // const {name, description, imageUrl, difficultyLevel} = data;
-    const cube = new Cube(data);
-
+function create(data, userId) {
+    const cube = new Cube({...data, creator: userId});
     return cube.save()
 }
 
