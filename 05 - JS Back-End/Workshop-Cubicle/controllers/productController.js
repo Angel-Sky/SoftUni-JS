@@ -1,13 +1,14 @@
 const { Router } = require('express');
 const router = Router();
+const isAuthenticated = require('../middlewares/isAuthenticated');
 const productService = require('../services/productServices');
 const accessoryService = require('../services/accessoryService');
 
-router.get('/create', (req, res) => {
+router.get('/create', isAuthenticated, (req, res) => {
     res.render('create', { title: 'Create' });
 });
 
-router.post('/create', validateInput, (req, res) => {
+router.post('/create', isAuthenticated, validateInput, (req, res) => {
     productService.create(req.body)
         .then(() => res.redirect('/'))
         .catch((err) => console.error(err));
@@ -18,14 +19,14 @@ router.get('/details/:id', async (req, res) => {
     res.render('details', { title: 'Attach Accessory', product })
 });
 
-router.get('/:id/attach-accessory', async (req, res) => {
+router.get('/:id/attach-accessory', isAuthenticated, async (req, res) => {
     let product = await productService.getSpecific(req.params.id);
     let accessories = await accessoryService.getAllUnattached(product.accessories);
 
     res.render('attachAccessory', { title: 'Attach Accessory', product, accessories })
 });
 
-router.post('/:id/attach-accessory', (req, res) => {
+router.post('/:id/attach-accessory', isAuthenticated, (req, res) => {
     productService.attachAccessory(req.params.id, req.body.accessory)
         .then(() => res.redirect(`/details/${req.params.id}`))
 
