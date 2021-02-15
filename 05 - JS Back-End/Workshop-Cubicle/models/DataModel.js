@@ -1,3 +1,5 @@
+//Old file about saving info into JSON file - i'm keeping it just for the demo
+
 const fs = require('fs/promises');
 const path = require('path');
 const productsDb = require('../config/products.json');
