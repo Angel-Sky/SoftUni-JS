@@ -29,7 +29,20 @@ router.get('/:id/attach-accessory', isAuthenticated, async (req, res) => {
 router.post('/:id/attach-accessory', isAuthenticated, (req, res) => {
     productService.attachAccessory(req.params.id, req.body.accessory)
         .then(() => res.redirect(`/details/${req.params.id}`))
+});
 
+router.get('/:id/edit', isAuthenticated, async (req, res) => {
+    let product = await productService.getSpecific(req.params.id);
+    res.render('edit', { title: 'Edit Product', product })
+});
+
+router.post('/:id/edit', isAuthenticated, async (req, res) => {
+    try {
+        await productService.update(req.params.id, req.body);
+        res.redirect(`/details/${req.params.id}`)
+    } catch (error) {
+        console.log(error);     
+    }
 });
 
 

@@ -31,6 +31,11 @@ async function getOneWithAccessories(id) {
     return await Cube.findById(id).populate('accessories').lean();
 }
 
+async function update(id, data) {
+    let product = await Cube.updateOne({_id: id}, data);
+    return product;
+}
+
 function create(data) {
    // const {name, description, imageUrl, difficultyLevel} = data;
     const cube = new Cube(data);
@@ -50,5 +55,6 @@ module.exports = {
     getAllProducts,
     getSpecific,
     getOneWithAccessories,
-    attachAccessory
+    attachAccessory,
+    update
 }
