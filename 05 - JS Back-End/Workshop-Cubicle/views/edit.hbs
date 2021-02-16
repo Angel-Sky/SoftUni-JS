@@ -3,11 +3,11 @@
   <div class="form">
     <form action='/{{product._id}}/edit' method="POST">
       <label for="name">Name</label>
-      <input type="text" id="name" name="name" value="{{product.name}}">
+      <input type="text" id="name" name="name" value="{{product.name}}" required>
       <label for="name">Description</label>
-      <textarea id="name" name="description">{{product.description}}</textarea>
+      <textarea id="name" name="description" required>{{product.description}}</textarea>
       <label for="image">ImageUrl</label>
-      <input type="text" id="image" name="imageUrl" value="{{product.imageUrl}}">
+      <input type="text" id="image" name="imageUrl" value="{{product.imageUrl}}" required>
       <label for="difficulty">Difficulty</label>
       <select id="difficulty" name="difficultyLevel">
         <option value="1">1 - Very Easy</option>

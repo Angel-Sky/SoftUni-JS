@@ -213,7 +213,7 @@ div.form {
 }
 
 span.error {
-    animation: fadeOut 1s forwards;
+    animation: fadeOut 10s forwards;
     animation-delay: 2s;
     background: #EF5542;
     color: white;
@@ -250,6 +250,23 @@ h2{
     text-align: center;
     font-style: italic;
 }
+
+
+#notifications {
+    margin: 0 auto;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    text-align: center;
+    width: 50%;
+    padding: 0.5%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    background: rgb(231, 118, 118);
+    color: white;
+    border-radius: 5px;
+    text-decoration: underline;
+}
+
 
 footer {
     background: #607588;

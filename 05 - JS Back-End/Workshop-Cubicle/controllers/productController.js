@@ -11,7 +11,7 @@ router.get('/create', isAuthenticated, (req, res) => {
 router.post('/create', isAuthenticated, validateInput, (req, res) => {
     productService.create(req.body, req.user._id)
         .then(() => res.redirect('/'))
-        .catch((err) => console.error(err));
+        .catch((error) => res.render('create', { error }))
 });
 
 router.get('/details/:id', async (req, res) => {
@@ -29,6 +29,7 @@ router.get('/:id/attach-accessory', isAuthenticated, async (req, res) => {
 router.post('/:id/attach-accessory', isAuthenticated, (req, res) => {
     productService.attachAccessory(req.params.id, req.body.accessory)
         .then(() => res.redirect(`/details/${req.params.id}`))
+        .catch((error) => res.render('attachAccessory', { error }))
 });
 
 router.get('/:id/edit', isAuthenticated, async (req, res) => {
@@ -41,7 +42,7 @@ router.post('/:id/edit', isAuthenticated, validateInput, async (req, res) => {
         await productService.update(req.params.id, req.body);
         res.redirect(`/details/${req.params.id}`)
     } catch (error) {
-        console.log(error);     
+        res.render('edit', { error })
     }
 });
 
@@ -55,7 +56,7 @@ router.post('/:id/delete', isAuthenticated, async (req, res) => {
         await productService.deleteCube(req.params.id);
         res.redirect(`/`);
     } catch (error) {
-        console.log(error);     
+        res.render('delete', { error })
     }
 });
 
