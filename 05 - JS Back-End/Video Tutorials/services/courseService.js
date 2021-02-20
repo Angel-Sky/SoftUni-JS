@@ -6,7 +6,8 @@ async function create(data, userId) {
     return await course.save();
 }
 
-async function getAll() {
+async function getAll(search) {
+    if (search) return await Course.find({title: {$regex: search.search, $options: 'i'}}).sort({ createdAt: -1 }).lean();
     return await Course.find().sort({ createdAt: -1 }).lean();
 }
 
@@ -36,7 +37,7 @@ async function enroll(courseId, userId) {
 }
 
 async function getMostPop(num) {
-    return await Course.find({isPublic: true}).sort({ enrolledUsers: -1 }).limit(num).lean();
+    return await Course.find({ isPublic: true }).sort({ enrolledUsers: -1 }).limit(num).lean();
 }
 
 
