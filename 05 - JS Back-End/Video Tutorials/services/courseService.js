@@ -15,7 +15,7 @@ async function getSpecific(id, userId) {
     let course = await Course.findById(id).populate('enrolledUsers').lean();
     course.isEnrolled = course.enrolledUsers.some(x => x._id == userId);
     course.isCreator = course.creator == userId;
-
+    console.log(course)
     return course;
 }
 

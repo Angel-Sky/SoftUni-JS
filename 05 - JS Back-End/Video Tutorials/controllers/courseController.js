@@ -20,10 +20,10 @@ router.post('/create', async (req, res) => {
     }
 });
 
-// router.get('/:id/details', async (req, res) => {
-//     let hotel = await courseService.getSpecific(req.params.id, req.user._id);
-//     res.render('details', { title: 'Details', hotel })
-// });
+router.get('/:id/details', async (req, res) => {
+    let course = await courseService.getSpecific(req.params.id, req.user._id);
+    res.render('details', { title: 'Details', course })
+});
 
 
 // router.get('/:id/edit', async (req, res) => {
