@@ -1,3 +1,31 @@
+{{#unless isAuth}}
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <h1 class="display-4">Video Tutorials</h1>
+        <p class="lead">Start Self-Study Today: It'll Change Your Life</p>
+    </div>
+</div>
+
+<div>
+    <h1 class="text-center">Top Courses</h1>
+    <div class="container mt-3">
+        {{#if courses}}
+        <div class="row d-flex justify-content-center">
+            <div class="card-deck">
+                {{#each courses}}
+                    {{> course}}
+                {{/each}}
+            </div>
+        </div>
+        {{else}}
+        <h4 class="text-center">No courses...</h4>
+        {{/if}}
+    </div>
+</div>
+</main>
+
+{{else}}
+
 <main>
     <h1 class="text-center">Courses</h1>
     <section>
@@ -8,49 +36,18 @@
             <input type="submit" class="btn btn-info" value="Search">
         </form>
     </section>
-
+    {{#if courses}}
     <div class="container mt-3">
         <div class="row ">
             <div class="card-deck d-flex justify-content-center">
-                <div class="card mb-4">
-                    <img class="card-img-top"
-                        src="https://blog.cyberpanel.net/wp-content/uploads/2019/03/express-js-cyberpanel.jpeg"
-                        alt="Card image cap" width="400">
-                    <div class="card-body">
-                        <h4 class="card-title">ExpressJS</h4>
-                    </div>
-                    <div class="card-footer">
-                        <a href=""><button type="button" class="btn btn-info">Details</button></a>
-                        <small class="float-right">Date...</small>
-                    </div>
-                </div>
-
-                <div class="card mb-4">
-                    <img class="card-img-top" src="https://colorlib.com/wp/wp-content/uploads/sites/2/angular-logo.png"
-                        alt="Card image cap" width="400">
-                    <div class="card-body">
-                        <h4 class="card-title">Angular</h4>
-                    </div>
-                    <div class="card-footer">
-                        <a href=""><button type="button" class="btn btn-info">Details</button></a>
-                        <small class="float-right">Date...</small>
-                    </div>
-                </div>
-
-                <div class="card mb-4">
-                    <img class="card-img-top"
-                        src="http://blog.addthiscdn.com/wp-content/uploads/2014/11/addthis-react-flux-javascript-scaling.png"
-                        alt="Card image cap" width="400">
-                    <div class="card-body">
-                        <h4 class="card-title">React</h4>
-                    </div>
-                    <div class="card-footer">
-                        <a href=""><button type="button" class="btn btn-info">Details</button></a>
-                        <small class="float-right">Date...</small>
-                    </div>
-                </div>
+               {{#each courses}} 
+                    {{> course}}
+                {{/each}}
             </div>
         </div>
     </div>
+    {{else}}
     <h3 class="text-center">No courses...</h3>
+    {{/if}}
 </main>
+{{/unless}}
