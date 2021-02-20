@@ -7,8 +7,14 @@ async function create(data, userId) {
 }
 
 async function getAll(search) {
-    if (search) return await Course.find({title: {$regex: search.search, $options: 'i'}}).sort({ createdAt: -1 }).lean();
-    return await Course.find().sort({ createdAt: -1 }).lean();
+    let result;
+    if (search) {
+        result = await Course.find({ title: { $regex: search, $options: 'i' } }).sort({ createdAt: -1 }).lean();
+    } else {
+        result = await Course.find().sort({ createdAt: -1 }).lean();
+    }
+
+    return result;
 }
 
 async function getSpecific(id, userId) {

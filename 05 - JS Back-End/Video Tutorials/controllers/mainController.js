@@ -5,7 +5,7 @@ const moment = require("moment");
 router.get('/', async (req, res) => {
     let courses;
     if (req.user) {
-        courses = await courseService.getAll(req.query);
+        courses = await courseService.getAll(req.query.search);
         courses = courses.map(x => ({...x, createdAt: moment(x.createdAt).format('ddd MMM d YYYY HH:mm:ss')}))
     } else {
         courses = await courseService.getMostPop(3);
