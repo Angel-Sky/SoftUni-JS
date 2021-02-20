@@ -41,7 +41,7 @@
         <div class="row ">
             <div class="card-deck d-flex justify-content-center">
                {{#each courses}} 
-                    {{> course}}
+                    {{> course isAuth=../isAuth}}
                 {{/each}}
             </div>
         </div>
