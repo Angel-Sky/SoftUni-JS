@@ -7,8 +7,7 @@ async function create(data, userId) {
 }
 
 async function getAll() {
-    let courses = await Course.find().sort({ createdAt: -1 }).lean();
-    return courses;
+    return await Course.find().sort({ createdAt: -1 }).lean();
 }
 
 async function getSpecific(id, userId) {
@@ -37,7 +36,7 @@ async function enroll(courseId, userId) {
 }
 
 async function getMostPop(num) {
-
+    return await Course.find({isPublic: true}).sort({ enrolledUsers: -1 }).limit(num).lean();
 }
 
 
