@@ -8,7 +8,6 @@ router.get('/create', (req, res) => {
 
 router.post('/create', async (req, res) => {
     let { title, description, imageUrl, isPublic } = req.body;
-    isPublic = Boolean(isPublic);
     let courseData = {
         title, description, imageUrl, isPublic: Boolean(isPublic), createdAt: new Date()
     }
@@ -26,42 +25,42 @@ router.get('/:id/details', async (req, res) => {
 });
 
 
-// router.get('/:id/edit', async (req, res) => {
-//     let hotel = await courseService.getSpecific(req.params.id);
-//     res.render('edit', { title: 'Edit hotel', hotel })
-// });
+router.get('/:id/edit', async (req, res) => {
+    let course = await courseService.getSpecific(req.params.id);
+    course.checked = course.isPublic ? 'checked' : '';
+    res.render('edit', { title: 'Edit course', course })
+});
 
-// router.post('/:id/edit', async (req, res) => {
-//     try {
-//         await courseService.update(req.params.id, req.body);
-//         res.redirect(`/hotel/${req.params.id}/details`)
-//     } catch (error) {
-//         res.render('edit', { error })
-//     }
-// });
+router.post('/:id/edit', async (req, res) => {
+    let { title, description, imageUrl, isPublic } = req.body;
+    let courseData = {
+        title, description, imageUrl, isPublic: Boolean(isPublic), createdAt: new Date()
+    }
+    try {
+        await courseService.update(req.params.id, courseData);
+        res.redirect(`/course/${req.params.id}/details`)
+    } catch (error) {
+        res.render('edit', { error })
+    }
+});
 
-// router.get('/:id/delete', async (req, res) => {
-//     let hotel = await courseService.getSpecific(req.params.id);
-//     res.render('delete', { title: 'Delete Hotel', hotel })
-// });
+router.get('/:id/delete', async (req, res) => {
+    try {
+        await courseService.deleteCourse(req.params.id);
+        res.redirect(`/`);
+    } catch (error) {
+        res.render('delete', { error })
+    }
+});
 
-// router.post('/:id/delete', async (req, res) => {
-//     try {
-//         await courseService.deleteHotel(req.params.id);
-//         res.redirect(`/`);
-//     } catch (error) {
-//         res.render('delete', { error })
-//     }
-// });
-
-// router.get('/:id/book', async (req, res) => {
-//     try {
-//         await courseService.book(req.params.id, req.user._id);
-//         res.redirect(`/hotel/${req.params.id}/details`);
-//     } catch (error) {
-//         res.render('details', { error })
-//     }
-// });
+router.get('/:id/enroll', async (req, res) => {
+    try {
+        await courseService.enroll(req.params.id, req.user._id);
+        res.redirect(`/course/${req.params.id}/details`);
+    } catch (error) {
+        res.render('details', { error })
+    }
+});
 
 
 module.exports = router;
