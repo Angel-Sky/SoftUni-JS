@@ -1,0 +1,55 @@
+<form method="POST">
+    <h1>Expense</h1>
+
+    <div class="form-control">
+        <label for="merchant">Merchant*</label>
+        <input id="merchant" type="text" name="merchant" placeholder="Shoes" required>
+    </div>
+
+    <div class="form-control">
+        <label for="total">Total*</label>
+        <input id="total" type="text" name="total" placeholder="123.00" required>
+        <select name="vault" id="vault">
+            <option value="bgn">BGN лв</option>
+        </select>
+    </div>
+
+    <div class="form-control">
+        <label for="category">Category*</label>
+        <select name="category" id="category" required>
+            <option disabled selected value="default">Select category...</option>
+            <option value="advertising">Advertising</option>
+            <option value="benefits">Benefits</option>
+            <option value="car">Car</option>
+            <option value="equipment">Equipment</option>
+            <option value="fees">Fees</option>
+            <option value="home-office">Home Office</option>
+            <option value="insurance">Insurance</option>
+            <option value="interest">Interest</option>
+            <option value="Labor">Labor</option>
+            <option value="maintenance">Maintenance</option>
+            <option value="materials">Materials</option>
+            <option value="meals-and-entertainment">Meals and Entertainment</option>
+            <option value="office-supplies">Office Supplies</option>
+            <option value="other">Other</option>
+            <option value="professional-services">Professional Services</option>
+            <option value="rent">Rent</option>
+            <option value="taxes">Taxes</option>
+            <option value="travel">Travel</option>
+            <option value="utilities">Utilities</option>
+        </select>
+    </div>
+
+    <div class="form-control">
+        <label for="description">Description*</label>
+        <input id="description" type="text" name="description" placeholder="Shoes description..." required>
+    </div>
+
+    <div class="form-control">
+        <label for="report">Report: </label>
+        <input type="checkbox" id="report" name="report"/>
+    </div>
+
+    <button type="Submit">Save</button>
+
+</form>
