@@ -2,7 +2,7 @@ import style from './Posts.module.css';
 
 function Post() {
     return (
-        <div>
+        <>
             <img src="/blue-origami-bird.png" alt="Origami" />
             <p className={style.description}>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit,
@@ -17,7 +17,7 @@ function Post() {
                     Some Anonimous
                 </span>
             </div>
-        </div>
+        </>
     );
 }
 
