@@ -1,0 +1,44 @@
+.navigation {
+    width: 100%;
+    height: 16vh;
+    background-color: #234465;
+    color: white;
+    position: fixed;
+    top: 0;
+    border-bottom: 2px solid #ffa000;
+    border-top: 2px solid #ffa000;
+}
+
+.listItemLink {
+    color: white;
+    text-decoration: none;
+}
+
+
+.listItem {
+    display: inline-block;
+    height: auto;
+    margin-right: 2%;
+    cursor: pointer;
+    padding: 0.5%;
+    margin: 0.1%;
+    vertical-align: top;
+}
+
+
+.listItem:not(:first-child) {
+    padding: 2%;
+    margin-top: 1.5%;
+    border-top: 2px solid #ffa000;
+}
+
+.listItemImg {
+    height: 100px;
+}
+
+.listItem:hover {
+    border-top: none;
+    border-bottom: 2px solid #ffa000;
+    font-weight: bold;
+}
+
