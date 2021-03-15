@@ -1,0 +1,20 @@
+.main {
+    display: inline-block;
+    width: 83%;
+    height: auto;
+    /* border:1px solid blue; */
+    margin-bottom: 5%;
+}
+
+.mainHeading {
+    text-align: center;
+    color: #234465;
+    text-decoration: underline;
+    margin-bottom: 2%;
+}
+.container {
+    margin-top: 8.5%;
+    padding: 0.5%;
+    /* border: 1px solid purple; */
+    margin-bottom: 0.1%;
+}
