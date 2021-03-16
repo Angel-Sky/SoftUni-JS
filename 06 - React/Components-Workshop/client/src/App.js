@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import { Route, Switch } from 'react-router-dom'
 import postService from './services/postService'
 import style from './App.module.css';
 import Header from './components/Header/Header'
@@ -28,7 +29,13 @@ class App extends Component {
             <Header />
             <div className={style.container}>
                <Aside />
-               <Main posts={this.state.posts} />
+               <Switch>
+                  <Route path="/" exact>
+                     <Main posts={this.state.posts} />
+                  </Route>
+                  <Route path="/about" render={() => <h1>About us</h1>} />
+                  <Route path="/contacts" render={() => <h1>Contact us</h1>} />
+               </Switch>
             </div>
          </div>
       );

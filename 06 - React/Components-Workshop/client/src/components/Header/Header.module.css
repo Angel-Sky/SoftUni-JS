@@ -23,6 +23,8 @@
     padding: 0.5%;
     margin: 0.1%;
     vertical-align: top;
+    color: white;
+    text-decoration: none;
 }
 
 
@@ -30,6 +32,8 @@
     padding: 2%;
     margin-top: 1.5%;
     border-top: 2px solid #ffa000;
+    color: white;
+    text-decoration: none;
 }
 
 .listItemImg {
