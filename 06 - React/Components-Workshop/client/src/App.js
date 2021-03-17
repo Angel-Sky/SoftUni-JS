@@ -35,6 +35,7 @@ class App extends Component {
                   </Route>
                   <Route path="/about" render={() => <h1>About us</h1>} />
                   <Route path="/contacts" render={() => <h1>Contact us</h1>} />
+                  <Route render={() => <h1>Error 404: Page not found</h1>} />
                </Switch>
             </div>
          </div>
