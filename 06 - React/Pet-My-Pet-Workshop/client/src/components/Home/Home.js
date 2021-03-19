@@ -1,19 +1,13 @@
 import './Home.css';
+import CategoryNavigation from './CategoryNavigation';
 
-function Home() {
+function Home({ match }) {
+    console.log(match);
+
     return (
         <section className="dashboard">
             <h1>Dashboard</h1>
-            <nav className="navbar">
-                <ul>
-                    <li><a href="#">All</a></li>
-                    <li><a href="#">Cats</a></li>
-                    <li><a href="#">Dogs</a></li>
-                    <li><a href="#">Parrots</a></li>
-                    <li><a href="#">Reptiles</a></li>
-                    <li><a href="#">Other</a></li>
-                </ul>
-            </nav>
+            <CategoryNavigation />
             <ul className="other-pets-list">
                 <li className="otherPet">
                     <h3>Name: Gosho</h3>
