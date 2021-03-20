@@ -6,14 +6,13 @@ import ItemCard from './ItemCard';
 function Home({ match }) {
     const [pets, setPets] = useState([])
 
+    let category = match.params.category;
+    let queryString = (category && category != 'all') ? `?category=${category}` : '';
     useEffect(() => {
-        let category = match.params.category;
-        let queryString = (category && category != 'all') ? `?category=${category}` : '';
-
         fetch(`http://localhost:5000/pets${queryString}`)
             .then(res => res.json())
             .then(res => setPets(res));
-    }, [])
+    }, [match])
 
     return (
         <section className="dashboard">

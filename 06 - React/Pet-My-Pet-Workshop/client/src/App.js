@@ -3,8 +3,8 @@ import { Route, Switch } from 'react-router-dom';
 import './App.css';
 import Header from './components/Header/Header'
 import Footer from './components/Footer/Footer'
-import Main from './components/Main/Main'
 import Home from './components/Home/Home'
+import Details from './components/Details/Details'
 
 function App() {
   return (
@@ -13,6 +13,7 @@ function App() {
       <Switch>
         <Route path="/" component={Home} exact/>
         <Route path="/categories/:category" component={Home} />
+        <Route path="/pets/details/:id" component={Details} />
       </Switch>
       <Footer />
     </div>

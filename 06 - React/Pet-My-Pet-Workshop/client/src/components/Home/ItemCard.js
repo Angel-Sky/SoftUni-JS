@@ -1,4 +1,6 @@
-function ItemCard({params}) {
+import { Link } from 'react-router-dom';
+
+function ItemCard({ params }) {
     return (
         <li className="otherPet">
             <h3>Name: {params.name}</h3>
@@ -6,8 +8,8 @@ function ItemCard({params}) {
             <p className="img"><img src={params.imageURL} /></p>
             <p className="description">{params.description}</p>
             <div className="pet-info">
-                <a href="#"><button className="button"><i className="fas fa-heart"></i> Pet</button></a>
-                <a href="#"><button className="button">Details</button></a>
+                <Link to="#"><button className="button"><i className="fas fa-heart"></i> Pet</button></Link>
+                <Link to={`/pets/details/${params.id}`}><button className="button">Details</button></Link>
                 <i className="fas fa-heart"></i> <span>{params.likes} </span>
             </div>
         </li>
