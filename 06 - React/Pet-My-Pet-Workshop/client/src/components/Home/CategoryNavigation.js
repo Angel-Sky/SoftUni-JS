@@ -6,10 +6,10 @@ function CategoryNavigation() {
         <nav className="navbar">
             <ul>
                 <li><NavLink activeClassName="category-selected" to="/categories/all">All</NavLink></li>
-                <li><NavLink activeClassName="category-selected" to="/categories/cats">Cats</NavLink></li>
-                <li><NavLink activeClassName="category-selected" to="/categories/dogs">Dogs</NavLink></li>
-                <li><NavLink activeClassName="category-selected" to="/categories/parrots">Parrots</NavLink></li>
-                <li><NavLink activeClassName="category-selected" to="/categories/reptiles">Reptiles</NavLink></li>
+                <li><NavLink activeClassName="category-selected" to="/categories/Cat">Cats</NavLink></li>
+                <li><NavLink activeClassName="category-selected" to="/categories/Dog">Dogs</NavLink></li>
+                <li><NavLink activeClassName="category-selected" to="/categories/Parrot">Parrots</NavLink></li>
+                <li><NavLink activeClassName="category-selected" to="/categories/Reptile">Reptiles</NavLink></li>
                 <li><NavLink activeClassName="category-selected" to="/categories/others">Other</NavLink></li>
             </ul>
         </nav>
